@@ -1,0 +1,6 @@
+@CoreDriven_HostAddress = http://localhost:5232
+
+GET {{CoreDriven_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
