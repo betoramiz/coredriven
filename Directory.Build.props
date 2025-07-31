@@ -1,0 +1,8 @@
+﻿<Project>
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <EntityFrameworkVersion>8.0.0</EntityFrameworkVersion>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+</Project>
