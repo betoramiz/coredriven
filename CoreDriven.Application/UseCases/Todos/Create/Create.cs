@@ -3,7 +3,7 @@ using CoreDriven.Domain;
 
 namespace CoreDriven.Application.UseCases.Todos.Create;
 
-public class Create: IUseCase
+public class Create: IUseCase<Request, Response>
 {
     private readonly IDataBase _dataBase;
 
@@ -12,11 +12,18 @@ public class Create: IUseCase
         _dataBase = dataBase;
     }
     
-    public Response Execute(Request request)
+    // public Response Execute(Request request)
+    // {
+    //     var newTodo = new Todo(request.Name);
+    //     var result = _dataBase.Create(newTodo);
+    //     
+    //     return new Response(result);
+    // }
+    public async Task<Response> ExecuteAsync(Request request)
     {
         var newTodo = new Todo(request.Name);
         var result = _dataBase.Create(newTodo);
         
-        return new Response(result);
+        return await Task.FromResult(new Response(result));
     }
 }

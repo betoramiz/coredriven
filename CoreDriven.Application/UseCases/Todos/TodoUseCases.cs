@@ -2,4 +2,4 @@
 
 namespace CoreDriven.Application.UseCases.Todos;
 
-public record TodoUseCases(Create.Create Create, List.List List): IUseCases;
+public record TodoUseCases(Create.Create Create, List.List List): IUseCaseRepository;

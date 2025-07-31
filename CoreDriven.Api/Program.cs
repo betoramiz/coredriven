@@ -1,23 +1,18 @@
 using CoreDriven.Application.Common;
-using CoreDriven.Application.UseCases.Todos;
-using CoreDriven.Application.UseCases.Todos.Create;
 using CoreDriven.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-// builder.Services
-//     .AddScoped<TodoUseCases>()
-//     .AddScoped<Create>();
-
 builder.Services.Scan(scan => scan
-    .FromAssemblyOf<IUseCases>()
-    .AddClasses(classes => classes.AssignableTo<IUseCases>())
+    .FromAssemblyOf<IUseCaseRepository>()
+    .AddClasses(classes => classes.AssignableTo<IUseCaseRepository>())
     .AsSelfWithInterfaces()
     .WithScopedLifetime()
-    .FromAssemblyOf<IUseCase>()
-    .AddClasses(classes => classes.AssignableTo<IUseCase>())
+    .FromAssemblyOf<IBaseUseCase>()
+    .AddClasses(classes => classes.AssignableTo(typeof(IUseCase<,>)))
+    .AddClasses(classes => classes.AssignableTo(typeof(IUseCase<>)))
     .AsSelfWithInterfaces()
     .WithScopedLifetime()
 );

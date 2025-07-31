@@ -4,15 +4,17 @@ namespace CoreDriven.Application.UseCases.Todos.List;
 
 public record Response(string Id, string Name);
 
-public class List: IUseCase
+public class List: IUseCase<List<Response>>
 {
-    public List<Response> Execute()
+    public async Task<List<Response>> ExecuteAsync()
     {
-        return
-        [
-            new Response("1", "Todo 1"),
-            new Response("2", "Todo 2"),
-            new Response("3", "Todo 3")
-        ];
+        return await Task.FromResult(
+            new List<Response>
+            {
+                new("1", "Todo 1"),
+                new ("2", "Todo 2"),
+                new ("3", "Todo 3")
+            }
+        );
     }
 }

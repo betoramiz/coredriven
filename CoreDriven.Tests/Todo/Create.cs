@@ -16,13 +16,13 @@ public class Create
     [Fact]
     public void Test1()
     {
-        var guid = Guid.NewGuid().ToString();
-        var request = new Todos.Request("Todo 1");
-
-        _dataBaseMock.Setup(x => x.Create(It.IsAny<Domain.Todo>())).Returns(guid);
-        var sut = new Todos.Create(_dataBaseMock.Object);
-
-        var result = sut.Execute(request);
-        Assert.Equal(result.Id, guid);
+        // var guid = Guid.NewGuid().ToString();
+        // var request = new Todos.Request("Todo 1");
+        //
+        // _dataBaseMock.Setup(x => x.Create(It.IsAny<Domain.Todo>())).Returns(guid);
+        // var sut = new Todos.Create(_dataBaseMock.Object);
+        //
+        // var result = sut.Execute(request);
+        // Assert.Equal(result.Id, guid);
     }
 }

@@ -1,3 +1,3 @@
 ﻿namespace CoreDriven.Application.Common;
 
-public interface IUseCases { }
+public interface IUseCaseRepository { }

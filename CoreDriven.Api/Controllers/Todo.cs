@@ -13,16 +13,16 @@ namespace CoreDriven.Controllers
 
 
         [HttpGet]
-        public IActionResult List()
+        public async Task<IActionResult> List()
         {
-            var todos = _useCases.List.Execute();
+            var todos = await _useCases.List.ExecuteAsync();
             return Ok(todos);
         }
         
         [HttpPost]
-        public IActionResult Create(Todos.Create.Request request)
+        public async Task<IActionResult> Create(Todos.Create.Request request)
         {
-            var result = _useCases.Create.Execute(request);
+            var result = await _useCases.Create.ExecuteAsync(request);
             return Ok(result);
         }
     }
