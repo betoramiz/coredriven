@@ -1,4 +1,4 @@
-﻿namespace CoreDriven.Application.Common;
+﻿namespace CoreDriven.Application.Common.UseCases;
 
 public interface IBaseUseCase { }
 

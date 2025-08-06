@@ -1,4 +1,5 @@
 ﻿using CoreDriven.Application.Common;
+using CoreDriven.Application.Common.UseCases;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CoreDriven.Application;
