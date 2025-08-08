@@ -3,6 +3,7 @@
         <PackageReference Update="Microsoft.AspNetCore.OpenApi" Version="8.0.14"/>
         <PackageReference Update="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
         <PackageReference Update="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+        <PackageReference Update="Microsoft.AspNetCore.Mvc.Core" Version="2.3.0" />
         <PackageReference Update="Swashbuckle.AspNetCore" Version="6.6.2"/>
         
         <PackageReference Update="Scrutor" Version="6.1.0" />

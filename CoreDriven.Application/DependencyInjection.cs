@@ -1,6 +1,7 @@
-﻿using CoreDriven.Application.Common;
-using CoreDriven.Application.Common.UseCases;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using FluentValidation;
+using CoreDriven.Application.Common.UseCases;
 
 namespace CoreDriven.Application;
 
@@ -8,9 +9,19 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
-        services.AddUseCases();
+        return services
+            .AddFluentValidation()
+            .AddUseCases();
+    }
+    
+    private static IServiceCollection AddFluentValidation(this IServiceCollection services)
+    {
+        services.Configure<ApiBehaviorOptions>(options =>
+        {
+            options.SuppressModelStateInvalidFilter = true;
+        });
         
-        return services;
+        return services.AddValidatorsFromAssemblyContaining(typeof(DependencyInjection));
     }
 
     private static IServiceCollection AddUseCases(this IServiceCollection services)

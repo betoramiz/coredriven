@@ -4,7 +4,6 @@ using CoreDriven.Application.Common.Validation;
 using CoreDriven.Domain;
 using ErrorOr;
 using FluentValidation;
-using FluentValidation.Results;
 
 namespace CoreDriven.Application.UseCases.Todos.Create;
 
