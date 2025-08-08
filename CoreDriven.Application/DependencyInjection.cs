@@ -31,9 +31,8 @@ public static class DependencyInjection
             .AddClasses(classes => classes.AssignableTo<IUseCaseRepository>())
             .AsSelfWithInterfaces()
             .WithScopedLifetime()
-            .FromAssemblyOf<IBaseUseCase>()
-            .AddClasses(classes => classes.AssignableTo(typeof(IUseCase<,>)))
-            .AddClasses(classes => classes.AssignableTo(typeof(IUseCase<>)))
+            .FromAssemblyOf<IUseCase>()
+            .AddClasses(classes => classes.AssignableTo<IUseCase>())
             .AsSelfWithInterfaces()
             .WithScopedLifetime()
         );

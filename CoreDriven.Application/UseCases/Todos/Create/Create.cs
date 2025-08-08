@@ -7,7 +7,7 @@ using FluentValidation;
 
 namespace CoreDriven.Application.UseCases.Todos.Create;
 
-public class Create: IUseCase<Request, ErrorOr<Response>>
+public class Create: IUseCase
 {
     private readonly IDataBase _dataBase;
     private readonly IValidator<Request> _validations;

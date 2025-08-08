@@ -8,7 +8,7 @@ public class Request : PaginationRequest { }
 
 public record Response(string Id, string Name);
 
-public class List: IUseCase<Request, PaginationResponse<Response>>
+public class List: IUseCase
 {
     public async Task<PaginationResponse<Response>> ExecuteAsync(Request request)
     {
