@@ -6,7 +6,8 @@
 CoreDriven es un proyecto desarrollado en C# cuyo objetivo es proporcionar una base sólida y escalable para aplicaciones empresariales, siguiendo las mejores prácticas de arquitectura y desarrollo de software. Este repositorio está diseñado para facilitar la creación, mantenimiento y escalabilidad de proyectos .NET.
 
 ## 📖 Publicaciones.
-Puedes encontrar algunos articulos relacionados a este template [aqui](https://dev.to/betoramiz/coredriven-un-template-de-arquitectura-limpia-en-net-para-acelerar-tu-desarrollo-3691)
+Puedes encontrar algunos articulos relacionados a este template aqui:
+[CoreDriven](https://dev.to/betoramiz/coredriven-un-template-de-arquitectura-limpia-en-net-para-acelerar-tu-desarrollo-3691)
 
 ## ✨ Características
 
