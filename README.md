@@ -1,5 +1,5 @@
-# 🚀 CoreDriven
 
+![Alt text](coredriven-template.png)
 Repositorio para el proyecto **CoreDriven**.
 
 ## 📄 Descripción
