@@ -19,7 +19,7 @@ namespace CoreDriven.Api
                 result.TotalPages,
                 result.TotalItems
             }; 
-            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(metadata));
+            Response.Headers.Append("X-Pagination", JsonSerializer.Serialize(metadata));
             return Ok(result.Items);
         }
         
