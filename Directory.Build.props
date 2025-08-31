@@ -4,5 +4,6 @@
         <EntityFrameworkVersion>8.0.0</EntityFrameworkVersion>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <ManagePackageVersionCentrally>true</ManagePackageVersionCentrally>
     </PropertyGroup>
 </Project>

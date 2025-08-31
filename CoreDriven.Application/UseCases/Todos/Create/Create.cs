@@ -9,12 +9,12 @@ namespace CoreDriven.Application.UseCases.Todos.Create;
 
 public class Create: IUseCase
 {
-    private readonly IDataBase _dataBase;
+    private readonly IDataBaseAccess _dataBaseAccess;
     private readonly IValidator<Request> _validations;
 
-    public Create(IDataBase dataBase, IValidator<Request> validations)
+    public Create(IDataBaseAccess dataBaseAccess, IValidator<Request> validations)
     {
-        _dataBase = dataBase;
+        _dataBaseAccess = dataBaseAccess;
         _validations = validations;
     }
     
@@ -24,8 +24,8 @@ public class Create: IUseCase
             return errors.GetErrors();
         
         var newTodo = new Todo(request.Name);
-        var result = _dataBase.Create(newTodo);
+        // var result = await _dataBase.SaveDataAsync(newTodo);
         
-        return await Task.FromResult(new Response(result));
+        return await Task.FromResult(new Response(Guid.NewGuid().ToString()));
     }
 }

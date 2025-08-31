@@ -8,7 +8,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddApplication();
 
-builder.Services.AddScoped<IDataBase, Database>();
+builder.Services.AddScoped<IDataBaseAccess, Database>();
 
 var app = builder.Build();
 

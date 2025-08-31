@@ -1,12 +1,32 @@
-﻿using CoreDriven.Application.Common;
-using CoreDriven.Domain;
+﻿using System.Reflection;
+using CoreDriven.Application.Common;
+using ErrorOr;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoreDriven.Infrastructure;
 
-public class Database: IDataBase
+public class Database: DbContext, IDataBaseAccess
 {
-    public string Create(Todo todo)
+    public Database(DbContextOptions<Database> options): base(options) { }
+    
+    public async Task<ErrorOr<int>> SaveDataAsync(CancellationToken cancellationToken = default)
     {
-        return todo.Id;
+        try
+        {
+            var result = await base.SaveChangesAsync(cancellationToken);
+            return result;
+        }
+        catch (Exception e)
+        {
+            // _logger.LogError(message: $"Error saving to database - {e.Message}", exception: e);
+            return Error.Failure("Database.SaveError", "An error occurred while saving data to the database");
+        }
+    }
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        
+        base.OnModelCreating(modelBuilder);
     }
 }
