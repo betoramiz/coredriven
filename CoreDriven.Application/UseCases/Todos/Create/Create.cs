@@ -1,7 +1,7 @@
 ﻿using CoreDriven.Application.Common;
 using CoreDriven.Application.Common.UseCases;
 using CoreDriven.Application.Common.Validation;
-using CoreDriven.Domain;
+using CoreDriven.Domain.Todo;
 using ErrorOr;
 using FluentValidation;
 

@@ -1,10 +1,15 @@
-﻿namespace CoreDriven.Domain;
+﻿namespace CoreDriven.Domain.Todo;
 
 public class Todo
 {
     public string Id { get; set; }
     public string Name { get; set; }
 
+    public Todo()
+    {
+        
+    }
+    
     public Todo(string name)
     {
         Name = name;
