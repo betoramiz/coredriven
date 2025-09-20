@@ -1,11 +1,13 @@
 ﻿using System.Reflection;
 using CoreDriven.Application.Common;
 using ErrorOr;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CoreDriven.Infrastructure;
 
-public class Database: DbContext, IDataBaseAccess
+public class Database: IdentityDbContext<IdentityUser>, IDataBaseAccess
 {
     public Database(DbContextOptions<Database> options): base(options) { }
     
