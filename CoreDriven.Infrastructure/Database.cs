@@ -29,4 +29,22 @@ public class Database: DbContext, IDataBaseAccess
         
         base.OnModelCreating(modelBuilder);
     }
+    
+    public async Task<ErrorOr<Success>> ExecuteInTransactionAsync(Func<Task> operation)
+    {
+        await using var transaction = await Database.BeginTransactionAsync();
+        try
+        {
+            await operation();
+            await transaction.CommitAsync();
+            
+            return Result.Success;
+        }
+        catch(Exception e)
+        {
+            await transaction.RollbackAsync();
+
+            return Error.Failure("Transaction.Failure", e. Message);
+        }
+    }
 }
