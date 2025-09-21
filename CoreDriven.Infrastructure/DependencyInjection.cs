@@ -1,8 +1,10 @@
 ﻿using System.Reflection;
 using System.Text;
 using CoreDriven.Application.Common;
+using CoreDriven.Application.Common.Storage;
 using CoreDriven.Application.Common.Token;
 using CoreDriven.Infrastructure.Authentication;
+using CoreDriven.Infrastructure.Storage;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -20,7 +22,8 @@ public static class DependencyInjection
     {
         return services
             .AddAuthentication(configuration)
-            .AddPersistence(configuration);
+            .AddPersistence(configuration)
+            .AddStorage(configuration);
     }
     
     private static IServiceCollection AddAuthentication(this IServiceCollection services, IConfiguration configuration)
@@ -76,6 +79,15 @@ public static class DependencyInjection
         .AddDefaultTokenProviders();
 
         services.AddScoped<IDataBaseAccess>(provider => provider.GetService<Database>());
+        
+        return services;
+    }
+    
+    private static IServiceCollection AddStorage(this IServiceCollection services, IConfiguration configuration)
+    {
+        S3Configuration s3Config = new S3Configuration();
+        configuration.GetSection(S3Configuration.Option).Bind(s3Config);
+        services.AddTransient<IStorageService, MinioStorage>();
         
         return services;
     }
